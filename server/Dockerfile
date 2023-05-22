@@ -1,4 +1,5 @@
-FROM node:16
+FROM node:18.1.0-alpine3.14
+
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -13,6 +14,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD [ "npm", "run" , "start:prod" ]
