@@ -17,12 +17,12 @@ export class UsersService {
   }
 
   // get one user
-  async findOne(id: number): Promise<User> {
-    return await this.usersRepository.findOne({ where : { id } });
+  async findOne(username: string): Promise<User | undefined> {
+    return await this.usersRepository.findOne({ where : { username } });
   }
 
   //create user
-  async create(user: User): Promise<User> {
+  async create(user: User): Promise<User | undefined> {
     const hashedPassword = await bcrypt.hash(user.password, 10);
     const newUser = this.usersRepository.create({
       ...user,
@@ -42,8 +42,8 @@ export class UsersService {
     return await this.usersRepository.findOne({ where: { id } });
   }
 
-  // delete user
-  async delete(id: number): Promise<void> {
-    await this.usersRepository.delete(id);
-  }
+  // // delete user
+  // async delete(id: number): Promise<void> {
+  //   await this.usersRepository.delete(id);
+  // }
 }

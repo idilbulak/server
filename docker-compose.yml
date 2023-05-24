@@ -16,7 +16,7 @@ services:
     image: server
     build: ./server
     ports:
-      - 5001:5000
+      - 3001:3000
     environment:
       - DB_TYPE=postgres
       - PG_HOST=db 
